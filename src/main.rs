@@ -1,3 +1,5 @@
+mod prime_factorization;
+
 fn main () {
     let num = add(1, 10);
 
