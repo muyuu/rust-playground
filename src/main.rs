@@ -1,1 +1,3 @@
+mod algorithm;
+
 fn main() {}
