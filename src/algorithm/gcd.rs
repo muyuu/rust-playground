@@ -1,4 +1,13 @@
-pub fn gcd(a: i64, b: i64) -> i64 {}
+pub fn gcd(a: i64, b: i64) -> i64 {
+    let r = a % b;
+
+    if r == 0 {
+        return b;
+    }
+
+    let c = gcd(b, r);
+    c
+}
 
 #[cfg(test)]
 mod test {
