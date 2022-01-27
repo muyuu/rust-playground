@@ -1,11 +1,9 @@
 pub fn gcd(a: i64, b: i64) -> i64 {
-    let r = a % b;
-
-    if r == 0 {
-        return b;
+    if b == 0 {
+        return a;
     }
 
-    let c = gcd(b, r);
+    let c = gcd(b, a % b);
     c
 }
 
