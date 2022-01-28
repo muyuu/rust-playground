@@ -10,7 +10,7 @@ fn main() {
         algorithm::gcd::gcd(arr[0], arr[1])
     );
 
-    let poem = file::read::read("./README.md");
+    let poem = file::text::read("./README.md");
     println!("{}", poem);
 
     let _bmp = file::bmp::read("./assets/sample_640×426.bmp");
