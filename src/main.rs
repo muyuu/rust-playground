@@ -12,4 +12,6 @@ fn main() {
 
     let poem = file::read::read("./README.md");
     println!("{}", poem);
+
+    let _bmp = file::bmp::read("./assets/sample_640×426.bmp");
 }
