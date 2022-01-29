@@ -10,9 +10,15 @@ fn main() {
         algorithm::gcd::gcd(arr[0], arr[1])
     );
 
-    let poem = file::text::read("./README.md");
-    println!("{}", poem);
+    let readme = file::text::read("./README.md");
+    match readme {
+        Ok(x) => println!("Read Success!!\n{}", x),
+        Err(e) => println!("Error.\n{}", e),
+    }
 
-    let bmp = file::bmp::read("./assets/sample_640×426.bmp");
-    println!("1st byte: {}, 2nd byte: {}.", bmp[0], bmp[1]);
+    let bmp = file::bmp::read("./assets/muyuu.png");
+    match bmp {
+        Ok(x) => println!("1st byte: {}, 2nd byte: {}.", x[0], x[1]),
+        Err(x) => println!("T_T why?\n {:?}", x),
+    }
 }

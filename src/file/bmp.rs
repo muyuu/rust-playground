@@ -1,13 +1,19 @@
 use crate::file::read::read_bin;
+use anyhow::{anyhow, Result};
 
-pub fn read(path: &str) -> Vec<u8> {
+pub fn read(path: &str) -> Result<Vec<u8>> {
     let bmp = read_bin(path);
 
-    if is_bmp(&bmp) == false {
-        panic!("It's not BMP file 😇");
+    match bmp {
+        Ok(x) => {
+            if is_bmp(&x) {
+                Ok(x)
+            } else {
+                Err(anyhow!("It's not BMP file"))
+            }
+        }
+        Err(x) => Err(anyhow!("error. why? {:?}", x)),
     }
-
-    bmp
 }
 
 pub fn is_bmp(buf: &Vec<u8>) -> bool {
