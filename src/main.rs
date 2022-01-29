@@ -13,5 +13,6 @@ fn main() {
     let poem = file::text::read("./README.md");
     println!("{}", poem);
 
-    let _bmp = file::bmp::read("./assets/sample_640×426.bmp");
+    let bmp = file::bmp::read("./assets/sample_640×426.bmp");
+    println!("1st byte: {}, 2nd byte: {}.", bmp[0], bmp[1]);
 }

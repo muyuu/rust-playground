@@ -1,20 +1,13 @@
-use std::fs::File;
-use std::io::Read;
+use crate::file::read::read_bin;
 
 pub fn read(path: &str) -> Vec<u8> {
-    let mut file = File::open(path).expect("file not found!");
+    let bmp = read_bin(path);
 
-    let mut buf = Vec::new();
-    file.read_to_end(&mut buf)
-        .expect("something went wrong reading the file");
-
-    println!("finished read binary");
-
-    if is_bmp(&buf) == false {
+    if is_bmp(&bmp) == false {
         panic!("It's not BMP file 😇");
     }
 
-    buf
+    bmp
 }
 
 pub fn is_bmp(buf: &Vec<u8>) -> bool {
